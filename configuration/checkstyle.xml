@@ -73,9 +73,9 @@
         value="CLASS_DEF, METHOD_DEF, CTOR_DEF"/>
     </module>
 
-    <!--    <module name="CyclomaticComplexity">-->
-    <!--      <property name="max" value="10"/>-->
-    <!--    </module>-->
+        <module name="CyclomaticComplexity">
+          <property name="max" value="10"/>
+        </module>
     <module name="WhitespaceAround">
       <message key="ws.notFollowed"
         value="WhitespaceAround: ''{0}'' is not followed by whitespace. Empty blocks may only be represented as '{}' when not part of a multi-block statement (4.1.3)"/>
