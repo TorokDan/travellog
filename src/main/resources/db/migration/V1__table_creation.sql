@@ -10,7 +10,7 @@ CREATE TABLE role (
     name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE user_role (
+CREATE TABLE appuser_roles (
     user_id INT REFERENCES role (id),
     role_id INT REFERENCES appuser (id),
     CONSTRAINT user_role_key PRIMARY KEY (user_id, role_id)
