@@ -2,7 +2,6 @@ package com.torokdan.travellog.modell;
 
 import com.torokdan.travellog.exception.UserAlreadyHaveThisRoleException;
 import com.torokdan.travellog.modell.dto.AppUserRequestDto;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
