@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.torokdan.travellog.modell.dto.AppUserRequestDto;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/user")
 public class AppUserController {
 
   private Logger logger = LoggerFactory.getLogger(this.getClass());
