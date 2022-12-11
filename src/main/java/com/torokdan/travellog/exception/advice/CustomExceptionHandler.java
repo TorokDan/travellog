@@ -4,6 +4,7 @@ import com.torokdan.travellog.exception.EmailAlreadyExistsException;
 import com.torokdan.travellog.exception.RoleNameAlreadyExistsException;
 import com.torokdan.travellog.exception.UserAlreadyHaveThisRoleException;
 import com.torokdan.travellog.exception.UserNameAlreadyExistsException;
+import com.torokdan.travellog.exception.UserNameNotFoundException;
 import com.torokdan.travellog.modell.dto.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,12 +15,20 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class CustomExceptionHandler {
 
 
-  @ExceptionHandler(value = {EmailAlreadyExistsException.class,
+  @ExceptionHandler(value = {
+      EmailAlreadyExistsException.class,
       UserNameAlreadyExistsException.class,
       RoleNameAlreadyExistsException.class,
       UserAlreadyHaveThisRoleException.class})
   @ResponseStatus(value = HttpStatus.BAD_REQUEST)
   public ErrorResponseDto handleDataDuplication(RuntimeException exception) {
+    return new ErrorResponseDto(exception.getMessage());
+  }
+
+  @ExceptionHandler(value = {
+      UserNameNotFoundException.class})
+  @ResponseStatus(value = HttpStatus.NOT_FOUND)
+  public ErrorResponseDto handleNotFoundData(RuntimeException exception) {
     return new ErrorResponseDto(exception.getMessage());
   }
 }
